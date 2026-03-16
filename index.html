@@ -646,6 +646,7 @@
   }
 </style>
 </head>
+
 <body>
 
 <div class="bg-grid"></div>
@@ -864,7 +865,7 @@
         </a>
       </div>
     </div>
-   <form action="https://formspree.io/f/xwvrnvkl" method="POST" class="contact-form reveal">
+   <form action="https://formspree.io/f/xwvrnvkl" method="POST" class="contact-form reveal" id="myForm">
   <div class="form-group">
     <label>اسمك</label>
     <input type="text" name="name" placeholder="مين أنت؟" required>
@@ -877,6 +878,8 @@
     <label>رسالتك</label>
     <textarea name="message" placeholder="شو بدك تقلي؟"></textarea>
   </div>
+
+
   <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
     ارسل الرسالة 🚀
   </button>
@@ -916,5 +919,22 @@
     });
   });
 </script>
+
+<script>
+var form = document.getElementById('myForm');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  var data = new FormData(form);
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(function() {
+    form.reset();
+    alert('شكراً! رح أتواصل معك قريباً 🚀');
+  });
+});
+</script
+
 </body>
 </html>
