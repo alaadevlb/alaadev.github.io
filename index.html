@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alaa | Front-End Developer</title>
-<link rel="icon" type="image/jpej" href="icon.jpeg">
+<link rel="icon" type="image/jpeg" href="icon.jpeg">
 <meta property="og:image" content="icon.jpeg">
 <style>
   :root {
@@ -20,14 +20,14 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Cairo', sans-serif;
+    font-family: Arial, sans-serif;
     overflow-x: hidden;
+    transition: direction 0.3s;
   }
 
   /* ===== BACKGROUND ===== */
@@ -44,23 +44,15 @@
 
   .bg-glow {
     position: fixed;
-    width: 600px;
-    height: 600px;
+    width: 600px; height: 600px;
     border-radius: 50%;
     filter: blur(120px);
     z-index: 0;
     pointer-events: none;
     animation: floatGlow 8s ease-in-out infinite;
   }
-  .bg-glow-1 {
-    background: radial-gradient(circle, rgba(0,245,160,0.08), transparent 70%);
-    top: -200px; right: -200px;
-  }
-  .bg-glow-2 {
-    background: radial-gradient(circle, rgba(0,217,245,0.06), transparent 70%);
-    bottom: -200px; left: -200px;
-    animation-delay: -4s;
-  }
+  .bg-glow-1 { background: radial-gradient(circle, rgba(0,245,160,0.08), transparent 70%); top: -200px; right: -200px; }
+  .bg-glow-2 { background: radial-gradient(circle, rgba(0,217,245,0.06), transparent 70%); bottom: -200px; left: -200px; animation-delay: -4s; }
 
   @keyframes floatGlow {
     0%, 100% { transform: translate(0, 0); }
@@ -82,13 +74,18 @@
   }
 
   .logo {
-    font-family: 'Syne', sans-serif;
     font-size: 1.5rem;
     font-weight: 800;
     background: linear-gradient(135deg, var(--accent), var(--accent2));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.5px;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
   }
 
   .nav-links {
@@ -119,6 +116,25 @@
   .nav-links a:hover { color: var(--accent); }
   .nav-links a:hover::after { transform: scaleX(1); }
 
+  /* Language switcher */
+  .lang-btn {
+    background: rgba(0,245,160,0.08);
+    border: 1px solid rgba(0,245,160,0.25);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+  }
+
+  .lang-btn:hover {
+    background: rgba(0,245,160,0.15);
+    transform: scale(1.05);
+  }
+
   /* ===== HERO ===== */
   .hero {
     min-height: 100vh;
@@ -131,9 +147,7 @@
     text-align: center;
   }
 
-  .hero-content {
-    max-width: 800px;
-  }
+  .hero-content { max-width: 800px; }
 
   .hero-badge {
     display: inline-flex;
@@ -162,7 +176,6 @@
   }
 
   .hero-name {
-    font-family: 'Syne', sans-serif;
     font-size: clamp(3.5rem, 10vw, 7rem);
     font-weight: 800;
     line-height: 1;
@@ -185,10 +198,7 @@
     animation: fadeUp 0.8s ease 0.2s both;
   }
 
-  .hero-title span {
-    color: var(--accent2);
-    font-weight: 600;
-  }
+  .hero-title span { color: var(--accent2); font-weight: 600; }
 
   .hero-desc {
     font-size: 1rem;
@@ -215,7 +225,6 @@
     border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 700;
-    font-family: 'Cairo', sans-serif;
     cursor: pointer;
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -237,7 +246,6 @@
     border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 600;
-    font-family: 'Cairo', sans-serif;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s;
@@ -252,7 +260,6 @@
     transform: translateY(-2px);
   }
 
-  /* ===== SCROLL INDICATOR ===== */
   .scroll-indicator {
     position: absolute;
     bottom: 40px;
@@ -268,8 +275,7 @@
   }
 
   .scroll-line {
-    width: 1px;
-    height: 40px;
+    width: 1px; height: 40px;
     background: linear-gradient(var(--accent), transparent);
   }
 
@@ -297,7 +303,6 @@
   }
 
   .section-title {
-    font-family: 'Syne', sans-serif;
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     letter-spacing: -1px;
@@ -320,9 +325,7 @@
     margin-bottom: 20px;
   }
 
-  .about-text p strong {
-    color: var(--text);
-  }
+  .about-text p strong { color: var(--text); }
 
   .about-stats {
     display: grid;
@@ -345,7 +348,6 @@
   }
 
   .stat-num {
-    font-family: 'Syne', sans-serif;
     font-size: 2.5rem;
     font-weight: 800;
     background: linear-gradient(135deg, var(--accent), var(--accent2));
@@ -353,11 +355,7 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .stat-label {
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-top: 4px;
-  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
 
   /* ===== SKILLS ===== */
   .skills-grid {
@@ -386,33 +384,12 @@
     transition: transform 0.3s;
   }
 
-  .skill-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0,245,160,0.3);
-  }
+  .skill-card:hover { transform: translateY(-4px); border-color: rgba(0,245,160,0.3); }
+  .skill-card:hover::before { transform: scaleX(1); }
 
-  .skill-card:hover::before {
-    transform: scaleX(1);
-  }
-
-  .skill-icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
-  }
-
-  .skill-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .skill-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 16px;
-  }
+  .skill-icon { font-size: 2rem; margin-bottom: 16px; }
+  .skill-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+  .skill-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
 
   .skill-bar-bg {
     background: rgba(255,255,255,0.05);
@@ -428,9 +405,7 @@
     animation: fillBar 1.5s ease both;
   }
 
-  @keyframes fillBar {
-    from { width: 0 !important; }
-  }
+  @keyframes fillBar { from { width: 0 !important; } }
 
   /* ===== PROJECTS ===== */
   .projects-grid {
@@ -459,8 +434,6 @@
     align-items: center;
     justify-content: center;
     font-size: 4rem;
-    position: relative;
-    overflow: hidden;
   }
 
   .project-thumb-1 { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
@@ -469,12 +442,7 @@
 
   .project-body { padding: 24px; }
 
-  .project-tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-  }
+  .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
 
   .tag {
     background: rgba(0,245,160,0.08);
@@ -486,28 +454,8 @@
     font-weight: 600;
   }
 
-  .project-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .project-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .project-coming {
-    font-size: 0.8rem;
-    color: var(--accent);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .project-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+  .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
 
   /* ===== CONTACT ===== */
   .contact-wrapper {
@@ -517,17 +465,9 @@
     align-items: start;
   }
 
-  .contact-info p {
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 40px;
-  }
+  .contact-info p { color: var(--muted); line-height: 1.8; margin-bottom: 40px; }
 
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
 
   .contact-link {
     display: flex;
@@ -542,10 +482,7 @@
     transition: all 0.2s;
   }
 
-  .contact-link:hover {
-    border-color: rgba(0,245,160,0.4);
-    transform: translateX(-4px);
-  }
+  .contact-link:hover { border-color: rgba(0,245,160,0.4); transform: translateX(-4px); }
 
   .contact-link-icon {
     width: 40px; height: 40px;
@@ -558,31 +495,12 @@
     flex-shrink: 0;
   }
 
-  .contact-link-text strong {
-    display: block;
-    font-size: 0.9rem;
-    margin-bottom: 2px;
-  }
+  .contact-link-text strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
+  .contact-link-text span { font-size: 0.8rem; color: var(--muted); }
 
-  .contact-link-text span {
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
 
-  /* ===== CONTACT FORM ===== */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-bottom: 8px;
-    font-weight: 600;
-  }
+  .form-group label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
 
   .form-group input,
   .form-group textarea {
@@ -592,17 +510,15 @@
     border-radius: 10px;
     padding: 12px 16px;
     color: var(--text);
-    font-family: 'Cairo', sans-serif;
     font-size: 0.9rem;
     transition: border-color 0.2s;
     resize: none;
     outline: none;
+    font-family: Arial, sans-serif;
   }
 
   .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: rgba(0,245,160,0.5);
-  }
+  .form-group textarea:focus { border-color: rgba(0,245,160,0.5); }
 
   .form-group textarea { height: 120px; }
 
@@ -631,10 +547,7 @@
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
@@ -647,7 +560,6 @@
   }
 </style>
 </head>
-
 <body>
 
 <div class="bg-grid"></div>
@@ -657,12 +569,15 @@
 <!-- NAV -->
 <nav>
   <div class="logo">Alaa.</div>
-  <ul class="nav-links">
-    <li><a href="#about">عني</a></li>
-    <li><a href="#skills">مهاراتي</a></li>
-    <li><a href="#projects">مشاريعي</a></li>
-    <li><a href="#contact">تواصل معي</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about" data-ar="عني" data-en="About">عني</a></li>
+      <li><a href="#skills" data-ar="مهاراتي" data-en="Skills">مهاراتي</a></li>
+      <li><a href="#projects" data-ar="مشاريعي" data-en="Projects">مشاريعي</a></li>
+      <li><a href="#contact" data-ar="تواصل معي" data-en="Contact">تواصل معي</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -670,21 +585,21 @@
   <div class="hero-content">
     <div class="hero-badge">
       <div class="badge-dot"></div>
-      متاح للعمل الحر
+      <span data-ar="متاح للعمل الحر" data-en="Available for Freelance">متاح للعمل الحر</span>
     </div>
     <h1 class="hero-name">
-      مرحباً، أنا<br>
+      <span data-ar="مرحباً، أنا" data-en="Hi, I'm">مرحباً، أنا</span><br>
       <span class="highlight">Alaa</span>
     </h1>
     <p class="hero-title">
-      <span>Front-End Developer</span> — أبني مواقع سريعة وجميلة
+      <span>Front-End Developer</span> — <span data-ar="أبني مواقع سريعة وجميلة" data-en="I build fast & beautiful websites">أبني مواقع سريعة وجميلة</span>
     </p>
-    <p class="hero-desc">
+    <p class="hero-desc" data-ar="متخصص في بناء واجهات مستخدم احترافية باستخدام HTML، CSS، وJavaScript. أحوّل الأفكار إلى تجارب رقمية مميزة." data-en="Specialized in building professional user interfaces using HTML, CSS, and JavaScript. I turn ideas into unique digital experiences.">
       متخصص في بناء واجهات مستخدم احترافية باستخدام HTML، CSS، وJavaScript. أحوّل الأفكار إلى تجارب رقمية مميزة.
     </p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">تواصل معي 🚀</a>
-      <a href="#projects" class="btn-secondary">شوف شغلي ↓</a>
+      <a href="#contact" class="btn-primary" data-ar="تواصل معي 🚀" data-en="Contact Me 🚀">تواصل معي 🚀</a>
+      <a href="#projects" class="btn-secondary" data-ar="شوف شغلي ↓" data-en="See My Work ↓">شوف شغلي ↓</a>
     </div>
   </div>
   <div class="scroll-indicator">
@@ -696,91 +611,78 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="reveal">
-    <div class="section-label">// من أنا</div>
-    <h2 class="section-title">عني</h2>
+    <div class="section-label" data-ar="// من أنا" data-en="// Who I Am">// من أنا</div>
+    <h2 class="section-title" data-ar="عني" data-en="About Me">عني</h2>
   </div>
   <div class="about-grid reveal">
     <div class="about-text">
-      <p>أنا <strong>Alaa</strong>، مطور Front-End شغوف ببناء مواقع ويب تجمع بين الجمال والأداء العالي.</p>
-      <p>أعمل على تحويل تصاميم وأفكار العملاء إلى صفحات ويب <strong>سريعة، متجاوبة، واحترافية</strong> باستخدام أحدث تقنيات الويب.</p>
-      <p>أؤمن أن كل موقع ويب هو قصة تُروى — وأنا هنا لأساعدك تحكي قصتك بأفضل شكل ممكن.</p>
+      <p data-ar="أنا <strong>Alaa</strong>، مطور Front-End شغوف ببناء مواقع ويب تجمع بين الجمال والأداء العالي." data-en="I'm <strong>Alaa</strong>, a passionate Front-End Developer who builds websites that combine beauty with high performance.">أنا <strong>Alaa</strong>، مطور Front-End شغوف ببناء مواقع ويب تجمع بين الجمال والأداء العالي.</p>
+      <p data-ar="أعمل على تحويل تصاميم وأفكار العملاء إلى صفحات ويب <strong>سريعة، متجاوبة، واحترافية</strong> باستخدام أحدث تقنيات الويب." data-en="I turn client designs and ideas into <strong>fast, responsive, and professional</strong> web pages using the latest web technologies.">أعمل على تحويل تصاميم وأفكار العملاء إلى صفحات ويب <strong>سريعة، متجاوبة، واحترافية</strong> باستخدام أحدث تقنيات الويب.</p>
+      <p data-ar="أؤمن أن كل موقع ويب هو قصة تُروى — وأنا هنا لأساعدك تحكي قصتك بأفضل شكل ممكن." data-en="I believe every website is a story to be told — and I'm here to help you tell yours in the best way possible.">أؤمن أن كل موقع ويب هو قصة تُروى — وأنا هنا لأساعدك تحكي قصتك بأفضل شكل ممكن.</p>
     </div>
     <div class="about-stats">
       <div class="stat-card">
         <div class="stat-num">3</div>
-        <div class="stat-label">مشروع منجز</div>
+        <div class="stat-label" data-ar="مشروع منجز" data-en="Projects Done">مشروع منجز</div>
       </div>
       <div class="stat-card">
         <div class="stat-num">∞</div>
-        <div class="stat-label">شغف بالعمل</div>
+        <div class="stat-label" data-ar="شغف بالعمل" data-en="Passion">شغف بالعمل</div>
       </div>
       <div class="stat-card">
         <div class="stat-num">3</div>
-        <div class="stat-label">تقنيات أساسية</div>
+        <div class="stat-label" data-ar="تقنيات أساسية" data-en="Core Skills">تقنيات أساسية</div>
       </div>
       <div class="stat-card">
         <div class="stat-num">24h</div>
-        <div class="stat-label">وقت الاستجابة</div>
+        <div class="stat-label" data-ar="وقت الاستجابة" data-en="Response Time">وقت الاستجابة</div>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- SKILLS -->
 <section id="skills">
   <div class="reveal">
-    <div class="section-label">// ما أعرفه</div>
-    <h2 class="section-title">مهاراتي</h2>
+    <div class="section-label" data-ar="// ما أعرفه" data-en="// What I Know">// ما أعرفه</div>
+    <h2 class="section-title" data-ar="مهاراتي" data-en="My Skills">مهاراتي</h2>
   </div>
   <div class="skills-grid">
     <div class="skill-card reveal">
       <div class="skill-icon">🏗️</div>
       <div class="skill-name">HTML5</div>
-      <div class="skill-desc">بناء هيكل المواقع بكود نظيف وسيمانتيك احترافي</div>
-      <div class="skill-bar-bg">
-        <div class="skill-bar-fill" style="width: 85%"></div>
-      </div>
+      <div class="skill-desc" data-ar="بناء هيكل المواقع بكود نظيف وسيمانتيك احترافي" data-en="Building website structure with clean and professional semantic code">بناء هيكل المواقع بكود نظيف وسيمانتيك احترافي</div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
     </div>
     <div class="skill-card reveal">
       <div class="skill-icon">🎨</div>
       <div class="skill-name">CSS3</div>
-      <div class="skill-desc">تصميم واجهات جميلة ومتجاوبة مع كل الشاشات</div>
-      <div class="skill-bar-bg">
-        <div class="skill-bar-fill" style="width: 80%"></div>
-      </div>
+      <div class="skill-desc" data-ar="تصميم واجهات جميلة ومتجاوبة مع كل الشاشات" data-en="Designing beautiful interfaces that are responsive across all screens">تصميم واجهات جميلة ومتجاوبة مع كل الشاشات</div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
     </div>
     <div class="skill-card reveal">
       <div class="skill-icon">⚡</div>
       <div class="skill-name">JavaScript</div>
-      <div class="skill-desc">إضافة تفاعلية وحيوية لكل عناصر الموقع</div>
-      <div class="skill-bar-bg">
-        <div class="skill-bar-fill" style="width: 70%"></div>
-      </div>
+      <div class="skill-desc" data-ar="إضافة تفاعلية وحيوية لكل عناصر الموقع" data-en="Adding interactivity and dynamic behavior to all website elements">إضافة تفاعلية وحيوية لكل عناصر الموقع</div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
     </div>
     <div class="skill-card reveal">
       <div class="skill-icon">📱</div>
       <div class="skill-name">Responsive Design</div>
-      <div class="skill-desc">مواقع تعمل بشكل مثالي على الموبايل والكمبيوتر</div>
-      <div class="skill-bar-bg">
-        <div class="skill-bar-fill" style="width: 88%"></div>
-      </div>
+      <div class="skill-desc" data-ar="مواقع تعمل بشكل مثالي على الموبايل والكمبيوتر" data-en="Websites that work perfectly on mobile and desktop">مواقع تعمل بشكل مثالي على الموبايل والكمبيوتر</div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div>
     </div>
     <div class="skill-card reveal">
       <div class="skill-icon">🐙</div>
       <div class="skill-name">Git & GitHub</div>
-      <div class="skill-desc">إدارة الكود ومشاركة المشاريع باحترافية</div>
-      <div class="skill-bar-bg">
-        <div class="skill-bar-fill" style="width: 65%"></div>
-      </div>
+      <div class="skill-desc" data-ar="إدارة الكود ومشاركة المشاريع باحترافية" data-en="Managing code and sharing projects professionally">إدارة الكود ومشاركة المشاريع باحترافية</div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
     </div>
     <div class="skill-card reveal">
       <div class="skill-icon">🚀</div>
       <div class="skill-name">Performance</div>
-      <div class="skill-desc">تحسين سرعة تحميل المواقع وتجربة المستخدم</div>
-      <div class="skill-bar-bg">
-        <div class="skill-bar-fill" style="width: 75%"></div>
-      </div>
+      <div class="skill-desc" data-ar="تحسين سرعة تحميل المواقع وتجربة المستخدم" data-en="Optimizing website loading speed and user experience">تحسين سرعة تحميل المواقع وتجربة المستخدم</div>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
     </div>
   </div>
 </section>
@@ -788,46 +690,41 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="reveal">
-    <div class="section-label">// شغلي</div>
-    <h2 class="section-title">مشاريعي</h2>
+    <div class="section-label" data-ar="// شغلي" data-en="// My Work">// شغلي</div>
+    <h2 class="section-title" data-ar="مشاريعي" data-en="My Projects">مشاريعي</h2>
   </div>
   <div class="projects-grid">
     <div class="project-card reveal">
-      <div class="project-thumb project-thumb-1">🌐</div>
+      <div class="project-thumb project-thumb-1">🔢</div>
       <div class="project-body">
         <div class="project-tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JS</span>
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
         </div>
-        <div class="project-name">calculator App</div>
-        <div class="project-desc">"حاسبه احترافية بتصميم عصري مع أنيميشن سلسة على كل ضغطة.</div>
-        <a href="https://alaadevlb.github.io/calculator" class="btn-primary" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 8px;">شوف المشروع</a>
+        <div class="project-name">Calculator App</div>
+        <div class="project-desc" data-ar="حاسبة احترافية بتصميم عصري مع أنيميشن سلسة على كل ضغطة." data-en="Professional calculator with modern design and smooth animations on every press.">حاسبة احترافية بتصميم عصري مع أنيميشن سلسة على كل ضغطة.</div>
+        <a href="https://alaadevlb.github.io/calculator" class="btn-primary" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:8px;" data-ar="شوف المشروع ←" data-en="View Project ←">شوف المشروع ←</a>
       </div>
     </div>
     <div class="project-card reveal">
       <div class="project-thumb project-thumb-2">🍔</div>
       <div class="project-body">
         <div class="project-tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JS</span>
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
         </div>
         <div class="project-name">Burger Restaurant Website</div>
-        <div class="project-desc">🍔 Landing Page لمطعم برغر أمريكي</div>
-        <a href="https://alaadevlb.github.io/burger-Landing" class="btn-primary" target="_blank" style="display:inline-flex; align-items:center; gap:8px; margin-top:8px;">شوف المشروع</a>
+        <div class="project-desc" data-ar="Landing Page لمطعم برغر أمريكي بتصميم احترافي وجذاب." data-en="Landing page for an American burger restaurant with a professional and attractive design.">Landing Page لمطعم برغر أمريكي بتصميم احترافي وجذاب.</div>
+        <a href="https://alaadevlb.github.io/burger-Landing" class="btn-primary" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:8px;" data-ar="شوف المشروع ←" data-en="View Project ←">شوف المشروع ←</a>
       </div>
     </div>
     <div class="project-card reveal">
       <div class="project-thumb project-thumb-3">⚡</div>
       <div class="project-body">
         <div class="project-tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span><span class="tag">CSS</span>
         </div>
-        <div class="project-name">To-Do App</div>
-        <div class="project-desc">تطبيق مهام تفاعلي بـ JavaScript خالص مع حفظ البيانات.</div>
-        <a href="https://alaadevlb.github.io/todo-app" class="btn-primary" target="_blank" style="display:inline-flex; align-items: center; gap: 8px; margin-top:8px;">شوف المشروع</a>
+        <div class="project-name">TaskFlow — To-Do App</div>
+        <div class="project-desc" data-ar="تطبيق مهام تفاعلي بـ JavaScript خالص مع حفظ البيانات." data-en="Interactive task manager built with pure JavaScript with data persistence.">تطبيق مهام تفاعلي بـ JavaScript خالص مع حفظ البيانات.</div>
+        <a href="https://alaadevlb.github.io/todo-app" class="btn-primary" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:8px;" data-ar="شوف المشروع ←" data-en="View Project ←">شوف المشروع ←</a>
       </div>
     </div>
   </div>
@@ -836,24 +733,24 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="reveal">
-    <div class="section-label">// تكلم معي</div>
-    <h2 class="section-title">تواصل معي</h2>
+    <div class="section-label" data-ar="// تكلم معي" data-en="// Get In Touch">// تكلم معي</div>
+    <h2 class="section-title" data-ar="تواصل معي" data-en="Contact Me">تواصل معي</h2>
   </div>
   <div class="contact-wrapper">
     <div class="contact-info reveal">
-      <p>هل عندك مشروع ببالك؟ أو بدك موقع احترافي؟ أنا هنا وجاهز أساعدك. تواصل معي وبرد عليك بأسرع وقت.</p>
+      <p data-ar="هل عندك مشروع ببالك؟ أو بدك موقع احترافي؟ أنا هنا وجاهز أساعدك. تواصل معي وبرد عليك بأسرع وقت." data-en="Do you have a project in mind? Or need a professional website? I'm here and ready to help. Contact me and I'll get back to you as soon as possible.">هل عندك مشروع ببالك؟ أو بدك موقع احترافي؟ أنا هنا وجاهز أساعدك. تواصل معي وبرد عليك بأسرع وقت.</p>
       <div class="contact-links">
         <a href="https://wa.me/963997703663" class="contact-link" target="_blank">
           <div class="contact-link-icon">💬</div>
           <div class="contact-link-text">
-            <strong>واتساب</strong>
-            <span>663 703 997 963+</span>
+            <strong>WhatsApp</strong>
+            <span>+963 997 703 663</span>
           </div>
         </a>
         <a href="https://mail.google.com/mail/?view=cm&to=alaadev761@gmail.com" class="contact-link" target="_blank">
           <div class="contact-link-icon">📧</div>
           <div class="contact-link-text">
-            <strong>إيميل</strong>
+            <strong>Email</strong>
             <span>alaadev761@gmail.com</span>
           </div>
         </a>
@@ -861,53 +758,80 @@
           <div class="contact-link-icon">🐙</div>
           <div class="contact-link-text">
             <strong>GitHub</strong>
-            <span>githube.com/alaadevlb</span>
+            <span>github.com/alaadevlb</span>
           </div>
         </a>
       </div>
     </div>
-   <form action="https://formspree.io/f/xwvrnvkl" method="POST" class="contact-form reveal" id="myForm">
-  <div class="form-group">
-    <label>اسمك</label>
-    <input type="text" name="name" placeholder="مين أنت؟" required>
+    <form action="https://formspree.io/f/xwvrnvkl" method="POST" class="contact-form reveal" id="myForm">
+      <div class="form-group">
+        <label data-ar="اسمك" data-en="Your Name">اسمك</label>
+        <input type="text" name="name" placeholder="مين أنت؟" data-ar-placeholder="مين أنت؟" data-en-placeholder="What's your name?" required>
+      </div>
+      <div class="form-group">
+        <label data-ar="إيميلك" data-en="Your Email">إيميلك</label>
+        <input type="email" name="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label data-ar="رسالتك" data-en="Your Message">رسالتك</label>
+        <textarea name="message" placeholder="أخبرني عن مشروعك..." data-ar-placeholder="أخبرني عن مشروعك..." data-en-placeholder="Tell me about your project..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;" data-ar="ارسل الرسالة 🚀" data-en="Send Message 🚀">ارسل الرسالة 🚀</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label>إيميلك</label>
-    <input type="email" name="email" placeholder="your@email.com" required>
-  </div>
-  <div class="form-group">
-    <label>رسالتك</label>
-    <textarea name="message" placeholder="اخبرني عن مشروعك...."></textarea>
-  </div>
-
-
-  <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
-    ارسل الرسالة 🚀
-  </button>
-</form>
-</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>صنع بـ ❤️ من <span>Alaa</span> — Front-End Developer</p>
+  <p data-ar="صنع بـ ❤️ من <span>Alaa</span> — Front-End Developer" data-en="Made with ❤️ by <span>Alaa</span> — Front-End Developer">صنع بـ ❤️ من <span>Alaa</span> — Front-End Developer</p>
 </footer>
 
 <script>
-  // Scroll reveal
+  // ===== LANGUAGE SWITCHER =====
+  let isArabic = true;
+
+  function toggleLang() {
+    isArabic = !isArabic;
+    const html = document.documentElement;
+    const btn = document.getElementById('langBtn');
+
+    if (isArabic) {
+      html.setAttribute('lang', 'ar');
+      html.setAttribute('dir', 'rtl');
+      btn.textContent = 'EN';
+    } else {
+      html.setAttribute('lang', 'en');
+      html.setAttribute('dir', 'ltr');
+      btn.textContent = 'AR';
+    }
+
+    // Switch all text elements
+    document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+      const text = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      if (text) el.innerHTML = text;
+    });
+
+    // Switch placeholders
+    document.querySelectorAll('[data-ar-placeholder]').forEach(el => {
+      el.placeholder = isArabic ? el.getAttribute('data-ar-placeholder') : el.getAttribute('data-en-placeholder');
+    });
+
+    // Switch title
+    document.title = isArabic ? 'Alaa | Front-End Developer' : 'Alaa | Front-End Developer';
+  }
+
+  // ===== SCROLL REVEAL =====
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, i * 100);
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
       }
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Smooth nav highlight
+  // ===== NAV HIGHLIGHT =====
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
@@ -919,25 +843,21 @@
       a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
     });
   });
-</script>
 
-<script>
-var form = document.getElementById('myForm');
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  var data = new FormData(form);
-  fetch(form.action, {
-    method: 'POST',
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  }).then(function() {
-    form.reset();
-    alert('شكراً! سنتواصل معك قريباً 🚀');
+  // ===== FORM =====
+  var form = document.getElementById('myForm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function() {
+      form.reset();
+      alert(isArabic ? 'شكراً! سنتواصل معك قريباً 🚀' : 'Thank you! We will contact you soon 🚀');
+    });
   });
-});
-</script
-
-  
-
+</script>
 </body>
 </html>
